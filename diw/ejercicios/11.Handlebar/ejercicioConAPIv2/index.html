@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Handlebar</title>
+	<link href="css/styles.css" rel="stylesheet"/>
+	<link href="css/fontawesome/fontawesome-all.css" rel="stylesheet"/>
+	<link href="css/bootstrapCss/bootstrap.min.css" rel="stylesheet"/>
+	<script src="js/handlebars.runtime-v4.0.11.js"></script>
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/bootstrapJs/bootstrap.min.js"></script>
+	<script src="js/plantilla.js">
+	</script>
+	<style>
+		@font-face {
+		    font-family: 'distant_galaxyregular';
+		    src: url('fonts/distantgalaxy_regular_macroman/DISTGRG_-webfont.eot');
+		    src: url('fonts/distantgalaxy_regular_macroman/DISTGRG_-webfont.eot?#iefix') format('embedded-opentype'),
+		         url('fonts/distantgalaxy_regular_macroman/DISTGRG_-webfont.woff') format('woff'),
+		         url('fonts/distantgalaxy_regular_macroman/DISTGRG_-webfont.ttf') format('truetype'),
+		         url('fonts/distantgalaxy_regular_macroman/DISTGRG_-webfont.svg#distant_galaxyregular') format('svg');
+		    font-weight: normal;
+		    font-style: normal;
+		}
+		body{
+			font-family: "distant_galaxyregular";
+			text-transform: uppercase;
+			letter-spacing: 2px;
+		}	
+	</style>
+</head>
+<body>
+	<div class="container h-100 d-flex align-items-center justify-content-center" height="100%">
+		
+		<button id="loading" class="p-3 btn btn-lg btn-warning m-4 mt-5 justify-content-center"><img class="fa-spin" src="images/loadingB2.png">&nbsp;&nbsp;&nbsp;Loading...</button>
+
+		<div id="main" class="text-white text-center col-10 col-md-8 col-lg-6 pt-5 pb-5" hidden="hidden">
+			<div id="miDiv" hidden="hidden"></div>
+			<div id="botones" hidden="hidden">
+				<button class="p-3 col-4 previous d-none d-md-inline d-lg-inline d-xl-inline btn-2d">PREVIOUS </button>
+				<button class="p-3 col-4 next btn-2d d-none d-md-inline d-lg-inline d-xl-inline">NEXT</button>
+				<button class="d-md-none d-lg-none d-xl-none previous btn-2d fas fa-angle-left"></button>
+				<button class="d-md-none d-lg-none d-xl-none next btn-2d fas fa-angle-right"></button>	
+			</div>
+		</div>
+	</div>
+	<script src="js/funcAjax.js"></script>
+</body>
+</html>
