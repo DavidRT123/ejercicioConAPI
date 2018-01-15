@@ -5,6 +5,7 @@ $(document).ready(function(){
 	
 	//Petición ajax para saber la longitud de los registros de personajes
 	$.post("https://swapi.co/api/people", function(resp){
+		//Guardado y modificación de la longitud (dado que los registros empiezan por el número 1)
 		longi = (resp.count)+1;
 		var registros = [];
 		
@@ -15,26 +16,25 @@ $(document).ready(function(){
 			var index = 1;
 			while(index <= longi){
 				(function(ind){
-					var html;
 					$.ajax({
-							url: "https://swapi.co/api/people/"+index,
-							method: "POST",
-							success: function(resp){
-								var html;
-								html = Handlebars.templates.plantilla(resp);
-								registros[ind] = html;
-								if(ind == longi){
-									$("#loading").hide();
-									$("#miDiv").append(registros[index]);
-									$("#miDiv").removeAttr("hidden");
-									$("#main").removeAttr("hidden");
-									$("#botones").removeAttr("hidden");
-								}
-							},
-							error: function(resp){
-								console.log("ERROR OCURRIDO EN EL REGISTRO: " + ind + " - " + resp.responseText);
+						url: "https://swapi.co/api/people/"+index,
+						method: "POST",
+						success: function(resp){
+							var html;
+							html = Handlebars.templates.plantilla(resp);
+							registros[ind] = html;
+							if(ind == longi){
+								$("#loading").hide();
+								$("#miDiv").append(registros[index]);
+								$("#miDiv").removeAttr("hidden");
+								$("#main").removeAttr("hidden");
+								$("#botones").removeAttr("hidden");
 							}
-						});
+						},
+						error: function(resp){
+							console.log("ERROR OCURRIDO EN EL REGISTRO: " + ind + " - " + resp.responseText);
+						}
+					});
 				})(index); 
 				index++;
 			}
